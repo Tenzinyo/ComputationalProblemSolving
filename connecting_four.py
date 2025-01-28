@@ -31,6 +31,40 @@ class Connect:
             self.win.close()
             return 0
         return self.start()
+    class Chips:
+    def __init__(self,win):
+        self.win=win
+        self.x=0
+        self.y=0
+        self.drawn=False
+        self.chip1=Circle(Point(500,500),10)
+        self.chip2=Circle(Point(0,0),10)
+        self.chip1.setFill('orange')
+        self.chip1.setFill('cyan')
+        
+    def drawAt(self,dx1,dy1,dx2,dy2):
+        self.chip1.move(dx1,dy1)
+        self.chip2.move(dx2,dy2)
+        if not self.drawn:
+            self.drawn=True
+            self.chip1.draw(self.win)
+            self.chip2.draw(self.win)
+            self.x+=dx1
+            self.x+=dx2
+            self.y+=dy1
+            self.y+=dy2
+    
+    def getX1coord(self):
+        return self.chip1.getCenter().getX()
+    
+    def getX2coord(self):
+        return self.chip2.getCenter().getX() 
+    
+    def getY1coord(self):
+        return self.chip1.getCenter().getY() 
+    
+    def getY2coord(self):
+        return self.chip2.getCenter().getY()
 
 
 
