@@ -31,7 +31,7 @@ class Connect:
             self.win.close()
             return 0
         return self.start()
-    class Chips:
+class Chips:
     def __init__(self,win):
         self.win=win
         self.x=0
@@ -65,6 +65,19 @@ class Connect:
     
     def getY2coord(self):
         return self.chip2.getCenter().getY()
+
+class Board:
+    def __init__(self,win,index):
+        self.win=win
+        self.x=0
+        self.y=0
+        self.drawn=False
+        self.rectangle=Rectangle(Point(800,800))
+        for c in index(range(1,80)):
+            self.circle=Circle(Point(self.x,self.y),10)
+        self.rectangle.setFill('blue')
+        self.cirlce.setFill('red')
+        
 
 
 
