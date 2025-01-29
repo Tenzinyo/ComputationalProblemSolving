@@ -22,3 +22,22 @@ def normalize(text):
     newText = text.lower()
     newText = removePunctuation(newText)
     return newText
+    def splitIntoWords(text):
+    """Split a text into words.
+    Parameter: text, a string object
+    Return value: the list of words in the text
+    """
+    wordList = []
+    prevCharacter = ' '
+    word = ''
+    for character in text:
+        if character not in string.whitespace:
+            word = word + character
+        elif prevCharacter not in string.whitespace:
+            wordList.append(word)
+            word = ''
+        prevCharacter = character
+    if word != '':
+        wordList.append(word)
+    return wordList
+
