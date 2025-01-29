@@ -40,4 +40,25 @@ def normalize(text):
     if word != '':
         wordList.append(word)
     return wordList
+    def wordTokens(text):
+    """Break a text into words with punctuation removed.
+    Parameter: text, a string object
+    Return value: a list of word tokens
+    """
+    newText = normalize(text)
+    tokens = splitIntoWords(newText)
+    return tokens
+def wordCount(text):
+    """Count the number of words in a string.
+    Parameter: text, a string object
+    Return value: the number of words in text
+    """
+    words = wordTokens(text)
+    return len(words)
+def main():
+    shortText = "This isn't long. But it'll do.\n Just a few sentences..."
+    print(shortText)
+    print(wordCount(shortText), "words")
+if __name__ == '__main__':
+    main()
 
