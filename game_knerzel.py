@@ -100,3 +100,40 @@ def takeTurn(playerName):
         else:
             return knerzel
 
+def roundWinner(player1Points, player2Points):
+    """Determine which player won this round according to the rules of the game.
+
+    Parameters:
+        player1Score, a non-negative integer
+        player2Score, a non-negative integer
+
+    Return value: 0 if the round is a tie
+                  1 if player 1 wins the round
+                  2 if player 2 wins the round
+    """
+    player1Points = takeTurn('name')
+    player2Points = takeTurn('name')
+    if player1Points == player2Points:
+        return 0
+    elif player1Points > player2Points:
+        return 1
+    else:
+        return 2
+print(roundWinner())
+
+
+def playGame():
+    """Plays a complete game according to the given rules."""
+    player1Score = 0
+    player2Score = 0
+    r = 1
+    while player1Score < 12 and player2Score < 12:
+        takeTurn(startingPlayer(player1Score, player2Score))
+        roundWinner()
+       
+def main():
+    printRules()
+    playGame()
+
+if __name__ == '__main__':
+    main()
