@@ -40,6 +40,30 @@ removeAll :: Eq a =>[a] -> [a]
 removeAll target (x:xs)
     |x == target = removeAll target xs
     |otherwise = x:(removeAll target xs)
+//
+main = do
+putStrLn "hey"
+removeAll :: Eq a =>a ->[a] -> [a]
+removeAll _[] = []
+removeAll target (x:xs)
+    |x == target = removeAll target xs
+    |otherwise   = x:(removeAll target xs)
 
+    
+removeF:: Eq a =>a ->[a] -> [a]
+removeF _[] = error"Target not found"
+removeF target (x:xs)
+    |x == target = xs
+    |otherwise   = x:(removeF target xs)
+
+main = do
+  putStrLn "hey"
+data List a = Empty | Entry a (List a)
+  deriving (Show)
+removeF:: Eq a =>a ->[a] -> [a]
+removeF _[] = error"Target not found"
+removeF target (x:xs)
+    |x == target = xs
+    |otherwise   = x:(removeF target xs)
 
 
