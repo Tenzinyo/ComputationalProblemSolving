@@ -1,0 +1,14 @@
+class CheckBST:
+    def __init__(self, data, left=Null, right=Null):
+        self.data=data
+        self.left=left
+        self.right=right
+
+    def checkBst(root, min , max):
+        if root==Null:
+            return True
+        if (root<min or root>max):
+            return False
+
+        return checkBst(root.left, min, root.data-1) && checkBst(root.right, root.data+1, max)
+        
